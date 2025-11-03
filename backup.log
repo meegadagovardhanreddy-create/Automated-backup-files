@@ -1,0 +1,53 @@
+[2025-11-03 09:25:29] INFO: [DRY RUN] Would create backup: backup-2025-11-03-0925.tar.gz
+[2025-11-03 09:25:29] INFO: [DRY RUN] Would exclude: .git node_modules .cache
+[2025-11-03 09:25:29] INFO: [DRY RUN] Would save to: /home/dmin/backup-system/backups
+[2025-11-03 09:25:29] INFO: [DRY RUN] Would generate checksum file
+[2025-11-03 09:25:29] INFO: Lock file removed
+[2025-11-03 09:26:05] INFO: Starting backup of /home/dmin/test_folder
+[2025-11-03 09:26:05] SUCCESS: Backup created: /home/dmin/backup-system/backups/backup-2025-11-03-0926.tar.gz
+[2025-11-03 09:26:05] INFO: Checksum created: /home/dmin/backup-system/backups/backup-2025-11-03-0926.tar.gz.sha256
+[2025-11-03 09:26:05] INFO: Verifying backup integrity...
+[2025-11-03 09:26:05] SUCCESS: Checksum verification passed.
+[2025-11-03 09:26:05] SUCCESS: Archive test extraction passed.
+[2025-11-03 09:26:05] INFO: Backup completed successfully.
+[2025-11-03 09:26:05] INFO: Lock file removed
+[2025-11-03 09:40:47] INFO: Starting backup of /home/dmin/test_folder
+[2025-11-03 09:40:47] SUCCESS: Backup created: /home/dmin/backup-system/backups/backup-2025-11-03-0940.tar.gz
+[2025-11-03 09:40:47] INFO: Checksum created: /home/dmin/backup-system/backups/backup-2025-11-03-0940.tar.gz.sha256
+[2025-11-03 09:40:47] INFO: Verifying backup integrity...
+[2025-11-03 09:40:47] SUCCESS: Checksum verification passed.
+[2025-11-03 09:40:47] SUCCESS: Archive test extraction passed.
+[2025-11-03 09:40:47] INFO: Starting cleanup of old backups...
+[2025-11-03 09:40:48] INFO: Cleanup complete.
+[2025-11-03 09:40:48] INFO: Backup completed successfully.
+[2025-11-03 09:40:48] INFO: Lock file removed
+[2025-11-03 09:45:03] INFO: Starting backup of /home/dmin/test_folder
+[2025-11-03 09:45:03] SUCCESS: Backup created: /home/dmin/backup-system/backups/backup-2025-11-03-0945.tar.gz
+[2025-11-03 09:45:03] INFO: Checksum created: /home/dmin/backup-system/backups/backup-2025-11-03-0945.tar.gz.sha256
+[2025-11-03 09:45:03] INFO: Verifying backup integrity...
+[2025-11-03 09:45:03] SUCCESS: Checksum verification passed.
+[2025-11-03 09:45:03] SUCCESS: Archive test extraction passed.
+[2025-11-03 09:45:03] INFO: Starting cleanup of old backups...
+[2025-11-03 09:45:04] INFO: Cleanup complete.
+[2025-11-03 09:45:04] INFO: Backup completed successfully.
+[2025-11-03 09:45:04] INFO: Lock file removed
+[2025-11-03 09:46:36] INFO: Starting backup of /home/dmin/test_folder
+[2025-11-03 09:46:36] SUCCESS: Backup created: /home/dmin/backup-system/backups/backup-2025-11-03-0946.tar.gz
+[2025-11-03 09:46:36] INFO: Checksum created: /home/dmin/backup-system/backups/backup-2025-11-03-0946.tar.gz.sha256
+[2025-11-03 09:46:36] INFO: Verifying backup integrity...
+[2025-11-03 09:46:36] SUCCESS: Checksum verification passed.
+[2025-11-03 09:46:36] SUCCESS: Archive test extraction passed.
+[2025-11-03 09:46:36] INFO: Starting cleanup of old backups...
+[2025-11-03 09:46:37] INFO: Cleanup complete.
+[2025-11-03 09:46:37] INFO: Backup completed successfully.
+[2025-11-03 09:46:37] INFO: Lock file removed
+[2025-11-03 09:51:20] INFO: Starting backup of /home/dmin/test_folder
+[2025-11-03 09:51:20] SUCCESS: Backup created: /home/dmin/backup-system/backups/backup-2025-11-03-0951.tar.gz
+[2025-11-03 09:51:20] INFO: Checksum created: /home/dmin/backup-system/backups/backup-2025-11-03-0951.tar.gz.sha256
+[2025-11-03 09:51:20] INFO: Verifying backup integrity...
+[2025-11-03 09:51:20] SUCCESS: Checksum verification passed.
+[2025-11-03 09:51:20] SUCCESS: Archive test extraction passed.
+[2025-11-03 09:51:20] INFO: Starting cleanup of old backups...
+[2025-11-03 09:51:21] INFO: Cleanup complete.
+[2025-11-03 09:51:21] INFO: Backup completed successfully.
+[2025-11-03 09:51:21] INFO: Lock file removed

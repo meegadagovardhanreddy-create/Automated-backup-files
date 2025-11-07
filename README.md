@@ -1,83 +1,190 @@
-Automatic Backup System.
+A. Project Overview
 
-Project Overreview.
+This project is a Linux shell script that creates backups of a directory.
+The script:
 
-These project is "Automated Backup System ("smart backup automation tool") these is written in the bash.
+Creates a compressed .tar.gz backup file
+Names the backup using date and time
+Generates a checksum file to verify data integrity
+Automatically deletes old backups when the limit is reached
+Supports dry run mode (to test without making changes)
+Logs all actions for review
+Why is this Useful?
+It prevents data loss and also prevents the storage from being filled with old backups.
 
-1) It automatically creates compressed backups, verifies their integrity, and deletes old backups to save space.
+B. How to Use It
+1. Installation
+Clone the repository:
 
-Features.
+git clone https://github.com/A4671satya/Build-the-Automated-Backup-System.git
+cd Build-the-Automated-Backup-System
+Make script executable:
 
-1) Create timestamped backups like Day , Date, Month, Year.
+bash
+Copy code
+chmod +x backup.sh
+2. Basic Usage
+bash
+Copy code
+./backup.sh <source_directory>
+Example:
 
-2) Verify backups using SHA256 checksums
- 
-3) Automatically delete old backups (rotation policy) 
+bash
+Copy code
+./backup.sh ~/Documents
+3. Dry Run Mode (No backups created, only logs)
+bash
+Copy code
+./backup.sh --dry-run ~/Documents
+4. Backup Rotation Limit
+Set inside script (example: keep last 5 backups):
 
-4) Keep backups configurable via `backup.config`
- 
-5) Logging of all activities in `backup.log`
- 
-6) Dry-run mode to simulate without changing anything
- 
-7) Prevents multiple runs with a lock file
- 
-8) Can be automated with `cron`
+bash
+Copy code
+MAX_BACKUPS=5
 
 
-ConfigFile.(backup.confing).
 
-These file is like a setting file for these project.
+C. How It Works
 
-It tells about our scrpit like what we need to give the commands for our backup files.
-If we need to delete anything like backup files we need to change the script in the config file.
-Or if we need to timestamp,date, time,month,year these things are setteled in the config file.
-In these config file we can put how many backup files we need or how many we nedd to delete we can write a a script here.
+Backup Process
+Create timestamp → backup-YYYY-MM-DD-HHMM.tar.gz
 
-#like
+Create compressed archive of source folder
 
-# ===== Backup System Configuration =====
+Generate checksum using:
 
-# Destination folder where all backups will be stored
-BACKUP_DESTINATION=/home/dmin/backup-system/backups
+bash
+Copy code
+sha256sum backupfile.tar.gz > backupfile.tar.gz.sha256
+Verify checksum
 
-# Folders or files you want to skip during backup
-EXCLUDE_PATTERNS=".git,node_modules,.cache"
+Log success or error
 
-# How many backups you want to keep
-DAILY_KEEP=7
-WEEKLY_KEEP=4
-MONTHLY_KEEP=3
+Rotation Algorithm
+Count how many backups exist
 
-# Optional: (for future feature) Email notifications
-NOTIFY_EMAIL=dmin@example.com
+If count > MAX_BACKUPS
+→ Remove oldest backup
 
-# ===== End of Configuration =====
+Backup Folder Structure (Example)
+bash
+Copy code
+~/backups/
+  backup-2025-11-03-1120.tar.gz
+  backup-2025-11-03-1120.tar.gz.sha256
+  backup-2025-11-04-1130.tar.gz
+  backup.log
 
-#How It Works.
 
-Takes a folder path as input
 
-Creates a .tar.gz archive with the current date and time
 
-Generates a .sha256 checksum file
+D. Design Decisions
+Decision	Reason
+Bash script	Works on all Linux systems
+tar + gzip compression	Saves space, fast
+sha256 checksum	Detects corruption
+Rotation system	Prevents disk storage overflow
+Logging	Easier debugging and auditing
 
-Verifies backup integrity
+Challenges & Solutions
+Challenge	Solution
+Backups becoming too large	Used compression
+Too many backups stored	Added rotation limit
+Need to confirm backup integrity	Added checksum verify
+Users running script accidentally	Added dry run mode
 
-Automatically deletes old backups based on configured retention rules
 
-Logs all actions in backup.log
 
-#Backup Rotation (Automatic Cleanup).
 
-The last 7 daily backups
+# E. Testing and Examples
+1. Create Test Folder
+bash
+Copy code
+mkdir -p ~/test_backup/src
+echo "hello world" > ~/test_backup/src/file1.txt
+echo "sample data" > ~/test_backup/src/file2.txt
+2. Dry Run Test
+bash
+Copy code
+./backup.sh --dry-run ~/test_backup/src
+Expected Output:
 
-The last 4 weekly backups
+lua
+Copy code
+DRY RUN: Would create backup backup-2025-11-03-1120.tar.gz
+DRY RUN: Would create checksum backup-2025-11-03-1120.tar.gz.sha256
+3. Real Backup
+bash
+Copy code
+./backup.sh ~/test_backup/src
+Check backup:
 
-The last 3 monthly backups
+bash
+Copy code
+ls -lh ~/backups
+4. Create Multiple Backups (simulate days)
+Run multiple times:
 
-#Author.
+bash
+Copy code
+./backup.sh ~/test_backup/src
+./backup.sh ~/test_backup/src
+./backup.sh ~/test_backup/src
+If MAX_BACKUPS=3, you will see:
 
-Name: Govardhanreddy Meegada
-Date: November 2025
-Project Type: Linux Bash Scripting / Automation.
+sql
+Copy code
+Old backup deleted: backup-2025-11-01-1040.tar.gz
+5. Error Handling Example
+Try backing up non-existing folder:
+
+bash
+Copy code
+./backup.sh /no/such/folder
+Expected:
+
+makefile
+Copy code
+ERROR: Source directory does not exist
+6. Verify Backup Integrity
+bash
+Copy code
+sha256sum -c backup-*.sha256
+7. Restore Backup (if needed)
+bash
+Copy code
+tar -xzf backup-YYYY-MM-DD-HHMM.tar.gz -C /restore/location
+
+
+
+
+F. Known Limitations
+Limitation	Possible Improvement
+Only local backups supported	Add upload to AWS S3 / Google Drive
+No automatic scheduling	Use cron job
+No email notification	Add status alert system
+No GUI	Could build web dashboard
+
+Summary
+Feature	Status
+Backup creation	
+Checksum verification	
+Backup rotation	
+Logging system	
+Dry run mode	
+Error handling	
+
+Developed by: Puppala Satya
+College: KIET, JNTUK
+
+yaml
+Copy code
+
+---
+
+If you want, I can now also:
+
+ Create a **PowerPoint (PPT)**  
+ Create a **Demo Script** for your viva  
+ Create **GitHub commit messages** and final structure  

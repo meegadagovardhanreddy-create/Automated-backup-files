@@ -16,7 +16,7 @@ B. How to Use It
 1. Installation
 Clone the repository:
 
-git clone https://github.com/A4671satya/Build-the-Automated-Backup-System.git
+git clone https://github.com/meegadagovardhanreddy-create/Automated-backup-files.git
 cd Build-the-Automated-Backup-System
 Make script executable:
 
@@ -175,8 +175,7 @@ Logging system
 Dry run mode	
 Error handling	
 
-Developed by: Puppala Satya
-College: KIET, JNTUK
+Developed by: Meegada Govardhan Reddy
 
 yaml
 Copy code
